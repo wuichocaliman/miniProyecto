@@ -127,7 +127,7 @@ public class Playermove : MonoBehaviour
         
         if (other.CompareTag("Destruible"))
         {
-            speed = 2f;
+            speed = 4f;
 
         }
 
