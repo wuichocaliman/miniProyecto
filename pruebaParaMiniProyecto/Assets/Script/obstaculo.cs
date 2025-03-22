@@ -7,19 +7,22 @@ using UnityEditor.EditorTools;
 
 public class obstaculo : MonoBehaviour
 {
-    public LayerMask capaPersonaje; // La capa del personaje
+   public LayerMask capaPersonaje; // La capa del personaje
     private Animator animator;
+    public AnimationCurve curve;
 
     [Header("Configuración de Rotura")]
     public float radioDeDeteccion = 2f;
     public int golpesParaRomper = 3; // Cantidad de golpes necesarios para destruirlo
     private int golpesRecibidos = 0; // Contador de golpes
+    private bool jugadorCerca = false;
+    public float testMovimeinto;
 
-    private float posicionInicialX;
-    private float posicionInicialY = 2f;
-    private float posicionFinalY;
+    public float current, target;
+    public Transform objetoAMover;
+    public Transform posicionInicialY;
+    public Transform posicionFinalY;
     public float speed = 2F;
-    bool jugadorCerca = false;
 
     private SpriteRenderer spriteRenderer; // Para cambiar el color
     private Color colorInicial; // Guarda el color original del objeto
@@ -28,9 +31,6 @@ public class obstaculo : MonoBehaviour
     void Start()
     {
         // Guarda la posición inicial en X para evitar desplazamientos laterales
-        posicionInicialX = transform.position.x;
-        posicionInicialY = transform.position.y;
-
         // Obtiene componentes necesarios
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -45,38 +45,32 @@ public class obstaculo : MonoBehaviour
     void Update()
     {
         checkPlayerRange();
+        MoverObstaculo();
+
+        
     }
-
-    public void checkPlayerRange()
+    void MoverObstaculo()
     {
-        // Detección del jugador
-        Collider2D collision = Physics2D.OverlapCircle(transform.position, radioDeDeteccion, capaPersonaje);
-
-        if (collision != null)
+        // Si el jugador está cerca, sube. Si no, baja.
+        if (jugadorCerca)
         {
-            jugadorCerca = true;
+            current += speed * Time.deltaTime;
         }
         else
         {
-            jugadorCerca = false;
+            current -= speed * Time.deltaTime;
         }
-
-        if (jugadorCerca)
+        current = Mathf.Clamp01(current); // Asegura que current esté entre 0 y 1
+        objetoAMover.position = Vector3.Lerp(posicionInicialY.position, posicionFinalY.position, current);
+    }
+    public void checkPlayerRange()
+    {
+        
+        // Detección del jugador
+        Collider2D collision = Physics2D.OverlapCircle(transform.position, radioDeDeteccion, capaPersonaje);
+        if (collision != null)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, posicionFinalY, speed * Time.deltaTime), transform.position.z);
-        }
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        /*if (collision != null)
-        {
-
+            jugadorCerca = true;
             // sen encarga de mantener la posición X fija para evitar desplazamientos 
             //transform.position = new Vector3(posicionInicialX, transform.position.y, transform.position.z);
 
@@ -84,10 +78,10 @@ public class obstaculo : MonoBehaviour
             //transform.Translate(Vector2.up * speed * Time.deltaTime);
 
             
-            transform.position = new Vector3(transform.position.x, posicionInicialY, transform.position.z);
-            float nuevaPosicionY = Mathf.Lerp(0, 2, posicionInicialY/posicionFinalY);
-            transform.position = new Vector3(transform.position.x, nuevaPosicionY, transform.position.z);
-        }*/
+         //   transform.position = new Vector3(transform.position.x, posicionInicialY, transform.position.z);
+           
+          //  transform.position = new Vector3(transform.position.x, nuevaPosicionY, transform.position.z);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
