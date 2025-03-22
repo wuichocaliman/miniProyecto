@@ -12,6 +12,7 @@ public class muroPeligroso : MonoBehaviour
     public Transform puntoDeSpawneo;  // El lugar donde aparecerá el objeto
     public float tiempoEntreSpawns = 2f; // Tiempo entre spawns
     public LayerMask capaPersonaje; // La capa del personaje
+    public float radioDeteccion;
 
     [Header("Ataque")]
     public Transform[] ArrayList;
@@ -37,7 +38,7 @@ public class muroPeligroso : MonoBehaviour
 
     public void checkPlayerRange()
     {
-        Collider2D collision = Physics2D.OverlapCircle(transform.position, 5, capaPersonaje);
+        Collider2D collision = Physics2D.OverlapCircle(transform.position, radioDeteccion, capaPersonaje); // Radio de deteccion
         if (collision != null && puedeSpawnear)
         {
             StartCoroutine(SpawnConCooldown());
@@ -57,6 +58,6 @@ public class muroPeligroso : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 5f); // Radio de detección
+        Gizmos.DrawWireSphere(transform.position, radioDeteccion); // Radio de deteccion dibujado
     }
 }

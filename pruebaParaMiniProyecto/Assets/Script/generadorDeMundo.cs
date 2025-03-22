@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class generadorDeMundo : MonoBehaviour
 {
+    [Header("Spawner de nivel")]
     public GameObject[] objetosSpawnear;
     public float distanciaMinima;
     public Transform puntoFinal;
     public int cantidadInicial;
     private Transform player;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
