@@ -1181,14 +1181,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0021008404
+    y: 0.0041841003
     width: 1
-    height: 0.9959034
+    height: 0.99173635
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2.85
+  orthographic size: 2.961039
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 80
+  m_AssetsPPU: 77
   m_RefResolutionX: 480
   m_RefResolutionY: 456
   m_CropFrame: 4
@@ -1590,8 +1590,8 @@ Transform:
   m_GameObject: {fileID: 915702155}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 0.409, z: 1.1455212}
-  m_LocalScale: {x: 3.826417, y: 3.826417, z: 3.826417}
+  m_LocalPosition: {x: -0.003, y: 1, z: 1.1455212}
+  m_LocalScale: {x: 4.7462873, y: 4.7462873, z: 4.7462873}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1981450522}
@@ -2069,7 +2069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1345678735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ Transform:
   m_GameObject: {fileID: 1345678734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.26, y: 2.34, z: 0}
+  m_LocalPosition: {x: -7.22, y: 2.34, z: 0}
   m_LocalScale: {x: 1.41, y: 7.2375503, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2475,6 +2475,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7285071378525404239, guid: 2f0d6f08d4bb4df4da53165e7d0a6978, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7285071378525404239, guid: 2f0d6f08d4bb4df4da53165e7d0a6978, type: 3}
       propertyPath: m_Name
       value: Energia
       objectReference: {fileID: 0}
@@ -2497,6 +2501,7 @@ GameObject:
   - component: {fileID: 1374129755}
   - component: {fileID: 1374129756}
   - component: {fileID: 1374129757}
+  - component: {fileID: 1374129758}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2681,6 +2686,51 @@ CapsuleCollider2D:
   m_Offset: {x: -0.101727486, y: 0.029492736}
   m_Size: {x: 0.53961873, y: 0.9548948}
   m_Direction: 0
+--- !u!66 &1374129758
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374129750}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1374129750}
 --- !u!1 &1426647720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2764,7 @@ MonoBehaviour:
   - {fileID: 6764365860691702267, guid: 3e8ac7d31f1da614fa1c47b98c739612, type: 3}
   - {fileID: 6306479429349990331, guid: a33b3b320155be74dbff656392aec713, type: 3}
   - {fileID: 400813468469867563, guid: c7913a66e8d17114e95acf42c8c7911a, type: 3}
-  - {fileID: 4536567401449427553, guid: 24a72a1943896ac48a35cef27f620ded, type: 3}
+  - {fileID: 9203845895169926316, guid: b38ef5ceebd121b49a74b570d1d42b79, type: 3}
   distanciaMinima: 5
   puntoFinal: {fileID: 1008597190}
   cantidadInicial: 0
