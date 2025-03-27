@@ -33,7 +33,7 @@ public class muroPeligroso : MonoBehaviour
     void movimiento()
     {
         // movimiento del muro continuo
-        //transform.Translate(direccion * speed * Time.deltaTime);
+        //ertransform.Translate(direccion * speed * Time.deltaTime);
     }
 
     public void checkPlayerRange()
