@@ -8,7 +8,7 @@ using UnityEditor.EditorTools;
 
 public class Playermove : MonoBehaviour
 {
-    public float speed; // control de la velocidad
+    public float speed = 5; // control de la velocidad
     private Animator animator; // Activador de la animacion 
     private bool ArmaAfuera; // variable que detecta si el arma esta afuera
    
