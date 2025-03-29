@@ -140,3 +140,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   objetivo: {fileID: 0}
+  colector1: {fileID: 8300000, guid: 05bc014e9653a7c4bbd0f4ffc54d5919, type: 3}

@@ -7,6 +7,7 @@ public class Proyectil : MonoBehaviour
     public float velocidad = 6f; // Velocidad del proyectil
     public Transform objetivo; // Referencia al jugador
     bool choco = false;
+    [SerializeField] private AudioClip colector1;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class Proyectil : MonoBehaviour
         {
             Debug.Log("Impacto con el jugador");
             choco = true;
-            
+            contorladorSonido.Instance.Ejecutarsonido(colector1);
         }
         if (choco == true)
         {
@@ -52,7 +53,7 @@ public class Proyectil : MonoBehaviour
 
         if (player != null && player.speed >= 0.25f)
         {
-            player.speed -= 0.25f; // Reducimos la velocidad del jugador
+            player.speed -= 0.50f; // Reducimos la velocidad del jugador
             Debug.Log("Velocidad del jugador reducida: " + player.speed);
         }
         

@@ -23,7 +23,8 @@ public class Playermove : MonoBehaviour
     public Color colorDamage;
     private Color currentColor;
     [SerializeField] private AudioClip colector1;
-    
+    [SerializeField] private AudioClip colector2;
+    [SerializeField] private AudioClip colector3;
 
     void Start()
     {
@@ -118,6 +119,7 @@ public class Playermove : MonoBehaviour
          {
             animator.SetTrigger("Ataque");
             animator.SetBool("ArmaFuera", true);
+            contorladorSonido.Instance.Ejecutarsonido(colector3);
          }
     }
     public void OnTriggerEnter2D (Collider2D other)
@@ -127,12 +129,17 @@ public class Playermove : MonoBehaviour
         {
             Debug.Log("objeto destruido...");
             Destroy(other.gameObject);
+            contorladorSonido.Instance.Ejecutarsonido(colector2);
         }
         
         if (other.CompareTag("Destruible"))
         {
-            speed = 4f;
+            speed = speed + 2f;
 
+        }
+        if (speed >= 5)
+        {
+            speed = 5;
         }
 
     }
