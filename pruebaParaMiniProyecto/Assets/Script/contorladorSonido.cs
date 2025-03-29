@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class contorladorSonido : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static contorladorSonido Instance;
+
+    private AudioSource audioSource;
     void Start()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+   public void Ejecutarsonido(AudioClip sonido)
     {
-        
+        audioSource.PlayOneShot(sonido);
     }
 }

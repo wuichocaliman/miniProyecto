@@ -22,6 +22,8 @@ public class Playermove : MonoBehaviour
 
     public Color colorDamage;
     private Color currentColor;
+    [SerializeField] private AudioClip colector1;
+    
 
     void Start()
     {
@@ -62,6 +64,7 @@ public class Playermove : MonoBehaviour
     if (!Input.GetKeyDown(KeyCode.E) && !ArmaAfuera)
     {
         animator.SetFloat("Blend", Mathf.Abs(inputMovimiento));
+        
     }
     else 
     {
@@ -93,6 +96,7 @@ public class Playermove : MonoBehaviour
         if (enSuelo && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            contorladorSonido.Instance.Ejecutarsonido(colector1);
         }
 
         // activador de animacion de salto, si esta fuera de colision de suelo se activa la animacion
